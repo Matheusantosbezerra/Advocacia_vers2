@@ -534,6 +534,10 @@ body.nav-open .menu-toggle span:nth-child(3){ top: 18px; transform: rotate(-45de
 
 
 
+.contato-form input, .contato-form textarea {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 
 
 
