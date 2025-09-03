@@ -62,8 +62,39 @@ html, body{
 }
 .logo span{ color: var(--primary); }
 
-/* Links desktop */
-.nav-links{
+/* -------- NAVBAR -------- */
+.navbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  transition: background .25s ease;
+}
+
+.navbar.scrolled { 
+  background: var(--nav-bg-solid); 
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.logo {
+  height: 56px; /* levemente menor para caber melhor em telas menores */
+  max-width: 180px;
+  width: auto;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.nav-links {
   list-style: none;
   display: flex;
   gap: 22px;
@@ -71,27 +102,38 @@ html, body{
   padding: 0;
   align-items: center;
 }
-.nav-links a{
+
+.nav-links a {
   color: var(--text);
   text-decoration: none;
   font-weight: 500;
   padding: 8px 10px;
   border-radius: 10px;
+  transition: background .2s;
 }
-.nav-links a:hover{
+
+.nav-links a:hover {
   background: rgba(255,255,255,.08);
 }
-.nav-cta a{
+
+.nav-cta a {
   background: var(--primary);
   color: #0f1d2e;
   font-weight: 700;
   padding: 10px 14px;
   border-radius: 10px;
 }
-.nav-cta a:hover{ filter: brightness(.9); }
 
+.nav-cta a:hover { 
+  filter: brightness(.9); 
+}
 
-.menu-toggle{
+html {
+  scroll-padding-top: 80px; /* altura da navbar */
+}
+
+/* Toggle (hamburguer) */
+.menu-toggle {
   display: none;
   width: 38px;
   height: 38px;
@@ -99,38 +141,74 @@ html, body{
   background: transparent;
   position: relative;
   cursor: pointer;
+  flex-shrink: 0;
 }
-.menu-toggle span{
+
+.menu-toggle span {
   display: block;
   height: 2px;
   background: var(--text);
   position: absolute;
-  left: 8px; right: 8px;
+  left: 8px; 
+  right: 8px;
   transition: transform .25s ease, top .25s ease, opacity .2s;
 }
+
 .menu-toggle span:nth-child(1){ top: 12px; }
 .menu-toggle span:nth-child(2){ top: 18px; }
 .menu-toggle span:nth-child(3){ top: 24px; }
 
-body.nav-open .menu-toggle span:nth-child(1){ top: 18px; transform: rotate(45deg); }
+body.nav-open .menu-toggle span:nth-child(1){ 
+  top: 18px; 
+  transform: rotate(45deg); 
+}
 body.nav-open .menu-toggle span:nth-child(2){ opacity: 0; }
-body.nav-open .menu-toggle span:nth-child(3){ top: 18px; transform: rotate(-45deg); }
+body.nav-open .menu-toggle span:nth-child(3){ 
+  top: 18px; 
+  transform: rotate(-45deg); 
+}
 
-/* Mobile menu */
-@media (max-width: 900px){
-  .menu-toggle{ display: block; }
-  .nav-links{
+/* -------- MOBILE MENU -------- */
+@media (max-width: 1024px) {
+  .menu-toggle { display: block; }
+
+  .nav-links {
     position: absolute;
-    top: 64px; right: 0; left: 0;
+    top: 60px;
+    right: 0;
+    left: 0;
     background: var(--nav-bg-solid);
     flex-direction: column;
-    gap: 10px;
-    padding: 16px;
+    gap: 14px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height .3s ease;
+    transition: max-height .35s ease;
   }
-  body.nav-open .nav-links{ max-height: 320px; }
+
+  body.nav-open .nav-links { 
+    max-height: 400px; 
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 1px;
+  }
+  .logo {
+    height: 48px;
+    max-width: 150px;
+  }
+}
+
+/* Melhor experiência em telas muito pequenas */
+@media (max-width: 480px) {
+  .logo {
+    height: 48px;
+    max-width: 150px;
+  }
+  .nav-links {
+    font-size: 0.95rem;
+  }
 }
 
 

@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>IET Advogados Associados</title>
   <link rel="stylesheet" href="style.css"/>
+  <script src="/script.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
 
   <!-- Font Awesome (ícones) -->
@@ -32,8 +34,7 @@
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#areas">Áreas de Atuação</a></li>
         <li><a href="#equipe">Equipe</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li class="nav-cta"><a href="#contato">Agendar Consulta</a></li>
+        <li class="nav-cta"><a href="#contato_alt">Agendar Consulta</a></li>
       </ul>
     </div>
   </nav>
@@ -45,7 +46,7 @@
     <div class="hero-content">
       <h1>Compromisso com a Justiça <br> Excelência em Resultados</h1>
       <p>IET Advogados Associados: <em>Comprometimento e Excelência</em></p>
-      <a href="#contato" class="btn">Agende uma Consulta</a>
+      <a href="#contato_alt" class="btn">Agende uma Consulta</a>
     </div>
 
     <div class="features">
@@ -172,7 +173,7 @@
   <h2>Entre em Contato</h2>
   <p>Estamos à disposição para esclarecer dúvidas e agendar uma consulta.</p>
 
-  <div class="contato-container">
+  <div class="contato-container" >
     
     <!-- Informações de contato -->
     <div class="contato-info">
@@ -183,12 +184,17 @@
     </div>
 
     <!-- Formulário -->
-    <form class="contato-form">
-      <input type="text" name="nome" placeholder="Seu Nome" required>
+    <form id="contactForm" class="contato-form">
+      <input type="text" name="name" placeholder="Seu Nome" required>
       <input type="email" name="email" placeholder="Seu E-mail" required>
-      <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
+      <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+      <button type="submit">Enviar Mensagem</button>
+
+      <!-- Campos ocultos do Formsubmit -->
+      <input type="hidden" name="_subject" value="Novo contato do site!">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+</form>
 
   </div>
 </section>
@@ -208,7 +214,7 @@
       <ul>
         <li><a href="#sobre">Sobre Nós</a></li>
         <li><a href="#atuacao">Áreas de Atuação</a></li>
-        <li><a href="#contato">Contato</a></li>
+        <li><a href="#contato_alt">Contato</a></li>
       </ul>
     </div>
 
@@ -233,7 +239,7 @@
   </main>
 
   <script>
-    // Menu mobile
+        // Menu mobile
     const menuToggle = document.getElementById('menuToggle');
     const navLinks   = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => {
@@ -254,5 +260,6 @@
     window.addEventListener('scroll', onScroll);
     onScroll();
   </script>
+
 </body>
 </html>
