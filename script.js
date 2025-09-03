@@ -8,7 +8,7 @@
 
     const data = new FormData(form);
 
-    fetch("https://formsubmit.co/matheusk8319@gmail.com", {
+    fetch("https://formsubmit.co/ietassociados@gmail.com", {
       method: "POST",
       body: data
     }).then(response => {
