@@ -225,7 +225,7 @@ body.nav-open .menu-toggle span:nth-child(3){
   /* Imagem de fundo */
   background:
     radial-gradient(1200px 600px at 90% 100%, rgba(89,69,24,.35), transparent 60%),
-    url('https://images.unsplash.com/photo-1523246194940-1f99226747bf?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+    url('/img/e8221cf6-eca4-44d7-bb73-48932088126a.png') center/cover no-repeat;
 }
 
 .overlay{
